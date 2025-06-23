@@ -16,7 +16,7 @@ async function getWeather(city) {
     iconDisplay.src = "";
 
     if (!city) {
-        descriptionDisplay.textContent = "Silakan masukkan nama kota.";
+        descriptionDisplay.textContent = "Input city name.";
         return;
     }
 
@@ -28,8 +28,8 @@ async function getWeather(city) {
         const data = await response.json();
 
         locationDisplay.textContent = `${data.name}, ${data.sys.country}`;
-        temperatureDisplay.textContent = `Suhu: ${data.main.temp} °C`;
-        descriptionDisplay.textContent = `Kondisi: ${data.weather[0].description}`;
+        temperatureDisplay.textContent = `Temperature: ${data.main.temp} °C`;
+        descriptionDisplay.textContent = `Condition: ${data.weather[0].description}`;
         iconDisplay.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
     } catch (error) {
         descriptionDisplay.textContent = error.message;
