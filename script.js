@@ -24,7 +24,7 @@ async function getWeather(city) {
         const response = await fetch(
             `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${API_KEY}&units=metric`
         );
-        if (!response.ok) throw new Error("Kota tidak ditemukan!");
+        if (!response.ok) throw new Error("Not found!");
         const data = await response.json();
 
         locationDisplay.textContent = `${data.name}, ${data.sys.country}`;
